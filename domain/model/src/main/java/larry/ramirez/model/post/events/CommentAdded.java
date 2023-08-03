@@ -11,4 +11,24 @@ public class CommentAdded extends DomainEvent {
     private final Author commentAuthor;
     private final Content content;
 
+
+    public CommentAdded(CommentId commentId, Author commentAuthor, Content content) {
+        super("larry.ramirez.CommentAdded");
+        this.commentId = commentId;
+        this.commentAuthor = commentAuthor;
+        this.content = content;
+    }
+
+
+    public CommentId getCommentId() {
+        return commentId;
+    }
+
+    public Author getCommentAuthor() {
+        return commentAuthor;
+    }
+
+    public Content getContent() {
+        return content;
+    }
 }
