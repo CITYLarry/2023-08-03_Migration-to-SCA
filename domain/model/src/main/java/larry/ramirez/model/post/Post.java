@@ -1,5 +1,7 @@
 package larry.ramirez.model.post;
 
+import larry.ramirez.model.post.events.CommentAdded;
+import larry.ramirez.model.post.events.PostCreated;
 import larry.ramirez.model.post.generic.AggregateRoot;
 import larry.ramirez.model.post.generic.DomainEvent;
 import larry.ramirez.model.post.values.comment.CommentId;
@@ -18,14 +20,15 @@ public class Post extends AggregateRoot<PostId> {
     protected List<Comment> commentList;
 
 
-    public Post(PostId postId, Title title, Author author, CommentId commentId, Author commentAuthor, Content content) {
+    public Post(PostId postId, Title title, Author author) {
         super(postId);
-        // TODO: PostChange logic
+        subscribe(new PostChange(this));
+        appendChange(new PostCreated(title, author)).apply();
     }
 
     private Post(PostId postId) {
         super(postId);
-        // TODO: PostChange logic
+        subscribe(new PostChange(this));
     }
 
 
@@ -39,6 +42,6 @@ public class Post extends AggregateRoot<PostId> {
         Objects.requireNonNull(commentId, "Entity id cannot be null");
         Objects.requireNonNull(author, "Author cannot be null");
         Objects.requireNonNull(content, "Content cannot be null");
-        // TODO: append change to event commentAdded
+        appendChange(new CommentAdded(commentId, author, content));
     }
 }
