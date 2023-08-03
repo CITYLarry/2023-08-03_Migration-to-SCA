@@ -11,8 +11,8 @@ public class Comment extends Entity<CommentId> {
     private Content content;
 
 
-    public Comment(CommentId entityId, Author author, Content content) {
-        super(entityId);
+    public Comment(CommentId commentId, Author author, Content content) {
+        super(commentId);
         this.author = author;
         this.content = content;
     }

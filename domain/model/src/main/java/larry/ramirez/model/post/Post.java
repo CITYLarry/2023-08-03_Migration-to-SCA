@@ -18,25 +18,25 @@ public class Post extends AggregateRoot<PostId> {
     protected List<Comment> commentList;
 
 
-    public Post(PostId entityId, Title title, Author author, CommentId commentId, Author commentAuthor, Content content) {
-        super(entityId);
+    public Post(PostId postId, Title title, Author author, CommentId commentId, Author commentAuthor, Content content) {
+        super(postId);
         // TODO: PostChange logic
     }
 
-    private Post(PostId entityId) {
-        super(entityId);
+    private Post(PostId postId) {
+        super(postId);
         // TODO: PostChange logic
     }
 
 
-    public static Post from(PostId entityId, List<DomainEvent> events) {
-        Post post = new Post(entityId);
+    public static Post from(PostId postId, List<DomainEvent> events) {
+        Post post = new Post(postId);
         events.forEach(post::applyEvent);
         return post;
     }
 
-    public void addAComment(CommentId entityId, Author author, Content content) {
-        Objects.requireNonNull(entityId, "Entity id cannot be null");
+    public void addAComment(CommentId commentId, Author author, Content content) {
+        Objects.requireNonNull(commentId, "Entity id cannot be null");
         Objects.requireNonNull(author, "Author cannot be null");
         Objects.requireNonNull(content, "Content cannot be null");
         // TODO: append change to event commentAdded
