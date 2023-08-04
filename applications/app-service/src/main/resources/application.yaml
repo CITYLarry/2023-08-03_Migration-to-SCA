@@ -1,14 +1,16 @@
-##Spring Configuration
 server:
   port: 8080
 spring:
   application:
-    name: SCA_PostsAndComments
+    name: "SCA_PostsAndComments"
   devtools:
     add-properties: false
   h2:
     console:
       enabled: true
-      path: /h2
+      path: "/h2"
   profiles:
-    include:
+    include: null
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/test"
