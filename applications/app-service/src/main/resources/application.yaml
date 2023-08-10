@@ -7,10 +7,40 @@ spring:
     add-properties: false
   h2:
     console:
-      enabled: true
+      enabled: false
       path: "/h2"
   profiles:
     include: null
   data:
     mongodb:
-      uri: "mongodb://localhost:27017/test"
+      uri: "mongodb://localhost:27017/SCA_PostAndComments"
+  rabbitmq:
+    host: "localhost"
+    username: "guest"
+    password: "guest"
+    virtual-host: "/"
+    port: 5672
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"
+commons:
+  jms:
+    output-concurrency: 10
+    output-queue: "DEV.QUEUE.1"
+    producer-ttl: 0
+    reactive: true
+    input-concurrency: 10
+    input-queue: "DEV.QUEUE.2"
+    input-queue-alias: ""
+ibm:
+  mq:
+    channel: "DEV.APP.SVRCONN"
+    user: "app"

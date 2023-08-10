@@ -23,7 +23,7 @@ public class Post extends AggregateRoot<PostId> {
     public Post(PostId postId, Title title, Author author) {
         super(postId);
         subscribe(new PostChange(this));
-        appendChange(new PostCreated(title, author)).apply();
+        appendChange(new PostCreated(title.value(), author.value())).apply();
     }
 
     private Post(PostId postId) {
@@ -42,6 +42,6 @@ public class Post extends AggregateRoot<PostId> {
         Objects.requireNonNull(commentId, "Entity id cannot be null");
         Objects.requireNonNull(author, "Author cannot be null");
         Objects.requireNonNull(content, "Content cannot be null");
-        appendChange(new CommentAdded(commentId, author, content));
+        appendChange(new CommentAdded(commentId.value(), author.value(), content.value()));
     }
 }

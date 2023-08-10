@@ -1,6 +1,9 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
+	implementation project( ':mq-listener')
+	implementation project( ':async-event-bus')
+	implementation project( ':reactive-web')
 	implementation project( ':serializer')
 	implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
 	implementation project( ':mongo-repository')
@@ -9,6 +12,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
     testImplementation 'com.tngtech.archunit:archunit:1.0.1'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '3.0.4'
 }
 
 tasks.register('explodedJar', Copy) {
