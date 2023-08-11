@@ -1,9 +1,9 @@
 package larry.ramirez.mongo;
 
-import larry.ramirez.model.post.gateways.DomainEventRepository;
 import larry.ramirez.model.post.generic.DomainEvent;
 import larry.ramirez.mongo.data.StoredEvent;
 import larry.ramirez.serializer.JSONMapper;
+import larry.ramirez.usecase.generic.gateways.DomainEventRepository;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;

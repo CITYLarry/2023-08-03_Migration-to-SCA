@@ -2,9 +2,10 @@ package larry.ramirez.events;
 
 import larry.ramirez.events.data.ErrorEvent;
 import larry.ramirez.events.data.Notification;
-import larry.ramirez.model.post.gateways.EventBus;
+
 import larry.ramirez.model.post.generic.DomainEvent;
 import larry.ramirez.serializer.JSONMapper;
+import larry.ramirez.usecase.generic.gateways.EventBus;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +34,11 @@ public class RabbitMqEventBus implements EventBus {
                         .serialize()
                         .getBytes()
         );
+    }
+
+    @Override
+    public void publishGeneric(Object object, String routingKey) {
+        template.convertAndSend(EXCHANGE, routingKey, eventSerializer.writeToJson(object).getBytes());
     }
 
     @Override

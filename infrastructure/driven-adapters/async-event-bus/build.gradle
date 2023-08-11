@@ -1,6 +1,7 @@
 dependencies {
     implementation project(':serializer')
     implementation project(':model')
+    implementation project(':usecase')
     implementation 'org.reactivecommons:async-commons-rabbit-starter:2.0.0'
     implementation 'org.springframework:spring-context'
 

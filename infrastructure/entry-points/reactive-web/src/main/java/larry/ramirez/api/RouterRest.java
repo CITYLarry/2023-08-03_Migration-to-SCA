@@ -1,12 +1,8 @@
 package larry.ramirez.api;
 
-import larry.ramirez.model.post.commands.CreatePostCommand;
-import larry.ramirez.model.post.generic.DomainEvent;
-import larry.ramirez.usecase.createpost.CreatePostUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
