@@ -9,11 +9,11 @@ pluginManagement {
 rootProject.name = 'SCA_PostsAndComments'
 
 include ':app-beta'
-include ':app-alpha'
+include ':app-service'
 include ':model'
 include ':usecase'
 project(':app-beta').projectDir = file('./applications/app-beta')
-project(':app-alpha').projectDir = file('./applications/app-alpha')
+project(':app-service').projectDir = file('./applications/app-service')
 project(':model').projectDir = file('./domain/model')
 project(':usecase').projectDir = file('./domain/usecase')
 include ':mongo-repository'
