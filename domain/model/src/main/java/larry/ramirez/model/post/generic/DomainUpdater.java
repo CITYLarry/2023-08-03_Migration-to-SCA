@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class DomainUpdater {
+public abstract class DomainUpdater {
 
     protected Set<Consumer<? super DomainEvent>> listeners = new HashSet<>();
 

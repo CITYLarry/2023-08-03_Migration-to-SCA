@@ -26,3 +26,7 @@ include ':async-event-bus'
 project(':async-event-bus').projectDir = file('./infrastructure/driven-adapters/async-event-bus')
 include ':mq-listener'
 project(':mq-listener').projectDir = file('./infrastructure/entry-points/mq-listener')
+include ':mongo-views-repository'
+project(':mongo-views-repository').projectDir = file('./infrastructure/driven-adapters/mongo-views-repository')
+include ':async-view-bus'
+project(':async-view-bus').projectDir = file('./infrastructure/driven-adapters/async-view-bus')

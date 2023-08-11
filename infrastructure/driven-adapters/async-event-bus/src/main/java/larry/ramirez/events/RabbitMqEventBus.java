@@ -37,11 +37,6 @@ public class RabbitMqEventBus implements EventBus {
     }
 
     @Override
-    public void publishGeneric(Object object, String routingKey) {
-        template.convertAndSend(EXCHANGE, routingKey, eventSerializer.writeToJson(object).getBytes());
-    }
-
-    @Override
     public void publishError(Throwable errorEvent) {
         ErrorEvent event = new ErrorEvent(errorEvent.getClass().getTypeName(), errorEvent.getMessage());
         template.convertAndSend(

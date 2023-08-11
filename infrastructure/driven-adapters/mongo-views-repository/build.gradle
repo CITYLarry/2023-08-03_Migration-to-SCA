@@ -1,0 +1,8 @@
+dependencies {
+    implementation project(':serializer')
+    implementation project(':usecase')
+    implementation project(':model')
+    implementation 'org.springframework:spring-context'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+}
