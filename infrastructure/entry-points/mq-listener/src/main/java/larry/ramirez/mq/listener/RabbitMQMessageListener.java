@@ -14,18 +14,18 @@ import java.util.logging.Logger;
 public class RabbitMQMessageListener {
 
     public static final String EVENTS_QUEUE = "sca.events.queue";
-    private final Logger logger = Logger.getLogger("RabbitMQMessageListener");
+    private final Logger logger = Logger.getLogger("ALPHAMessageListener");
     private final JSONMapper mapper = new JSONMapperImpl();
 
     @RabbitListener(queues = EVENTS_QUEUE)
-    public void process(String message) throws ClassNotFoundException {
+    public void process(String message) {
         Notification notification = Notification.from(message);
         if (
                 notification
                         .getType()
                         .equals("larry.ramirez.model.post.events.PostCreated")
         ) {
-            logger.info(notification.toString());
+            logger.info("Alpha: " + notification);
             return;
         }
         logger.info("Notification: event not supported");

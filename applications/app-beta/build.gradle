@@ -1,6 +1,8 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
+    implementation project( ':beta-mq-listener')
+    implementation project( ':reactive-web-beta')
     implementation project( ':async-view-bus')
     implementation project( ':mongo-views-repository')
     implementation project( ':serializer')

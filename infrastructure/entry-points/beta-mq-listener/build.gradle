@@ -1,0 +1,8 @@
+dependencies {
+    implementation project(':serializer')
+    implementation project(':model')
+    implementation project(':usecase')
+    implementation 'org.springframework:spring-context'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '3.0.4'
+}
