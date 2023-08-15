@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  alpha:
+    image: alpha:latest
+    ports:
+      - '8080:8080'
+    depends_on:
+      - rabbitmq
+      - mongodb
+    networks:
+      - mynetwork
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mynetwork
+
+  mongodb:
+    image: mongo:3
+    volumes:
+      - D:\Docker-Volumes:/etc/mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+
+networks:
+   mynetwork:

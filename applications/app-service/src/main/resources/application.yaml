@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: "SCA_PostsAndComments"
+    name: "SCA_PostsAndComments-ALPHA"
   devtools:
     add-properties: false
   h2:
@@ -13,16 +13,13 @@ spring:
     include: null
   data:
     mongodb:
-      uri: "mongodb://localhost:27017/SCA_PostAndComments"
+      uri: "mongodb://mongodb:27017/SCA_PostAndComments"
   rabbitmq:
-    host: "localhost"
+    host: "rabbitmq"
     username: "guest"
     password: "guest"
     virtual-host: "/"
     port: 5672
-  rsocket:
-    server:
-      port: 7000
 management:
   endpoints:
     web:
@@ -33,17 +30,4 @@ management:
       probes:
         enabled: true
 cors:
-  allowed-origins: "http://localhost:4200,http://localhost:8080"
-commons:
-  jms:
-    output-concurrency: 10
-    output-queue: "DEV.QUEUE.1"
-    producer-ttl: 0
-    reactive: true
-    input-concurrency: 10
-    input-queue: "DEV.QUEUE.2"
-    input-queue-alias: ""
-ibm:
-  mq:
-    channel: "DEV.APP.SVRCONN"
-    user: "app"
+  allowed-origins: "*"
