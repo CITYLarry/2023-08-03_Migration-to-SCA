@@ -13,11 +13,11 @@ public class RabbitMqConfig {
     public static final String EXCHANGE = "SCA_PostsAndComments_exchange";
     public static final String POST_CREATED_QUEUE = "sca.events.post.created.queue";
     public static final String COMMENT_ADDED_QUEUE = "sca.events.comment.added.queue";
-    public static final String GENERAL_QUEUE = "sca.events.general.queue";
+    public static final String GENERAL_QUEUE = "sca.events.queue";
 
     public static final String POST_CREATED_ROUTING_KEY = "sca.events.post.created.routing.key";
     public static final String COMMENT_ADDED_ROUTING_KEY = "sca.events.comment.added.routing.key";
-    public static final String GENERAL_ROUTING_KEY = "sca.events.general.routing.key";
+    public static final String GENERAL_ROUTING_KEY = "sca.events.routing.key";
 
 
     @Bean

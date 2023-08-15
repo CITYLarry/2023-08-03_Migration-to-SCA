@@ -27,7 +27,8 @@ public class MongoViewsRepositoryAdapter implements DomainViewRepository {
 
     @Override
     public Mono<PostViewModel> findByAggregateId(String aggregateId) {
-        return template.findById(aggregateId, PostViewModel.class);
+        Query query = new Query(Criteria.where("aggregateId").is(aggregateId));
+        return template.findOne(query, PostViewModel.class);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class MongoViewsRepositoryAdapter implements DomainViewRepository {
     public Mono<PostViewModel> addCommentToPost(CommentViewModel comment) {
         Query query = new Query(Criteria.where("aggregateId").is(comment.getPostId()));
         Update  update = new Update();
-        return template.findById(comment.getPostId(), PostViewModel.class)
+        return template.findOne(query, PostViewModel.class)
                 .flatMap(postViewModel -> {
                     List<CommentViewModel> comments = postViewModel.getComments();
                     comments.add(comment);

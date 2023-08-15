@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: "SCA_PostsAndComments"
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: false
+      path: "/h2"
+  profiles:
+    include: null
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/SCA_PostAndComments"
+  rabbitmq:
+    host: "localhost"
+    username: "guest"
+    password: "guest"
+    virtual-host: "/"
+    port: 5672
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"

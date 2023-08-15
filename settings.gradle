@@ -8,10 +8,12 @@ pluginManagement {
 
 rootProject.name = 'SCA_PostsAndComments'
 
+include ':app-gama'
 include ':app-beta'
 include ':app-service'
 include ':model'
 include ':usecase'
+project(':app-gama').projectDir = file('./applications/app-gama')
 project(':app-beta').projectDir = file('./applications/app-beta')
 project(':app-service').projectDir = file('./applications/app-service')
 project(':model').projectDir = file('./domain/model')
@@ -21,16 +23,20 @@ project(':mongo-repository').projectDir = file('./infrastructure/driven-adapters
 include ':serializer'
 project(':serializer').projectDir = file('./infrastructure/helpers/serializer')
 include ':reactive-web'
-project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
+project(':reactive-web').projectDir = file('./infrastructure/entry-points/alpha/reactive-web')
 include ':async-event-bus'
 project(':async-event-bus').projectDir = file('./infrastructure/driven-adapters/async-event-bus')
 include ':mq-listener'
-project(':mq-listener').projectDir = file('./infrastructure/entry-points/mq-listener')
+project(':mq-listener').projectDir = file('./infrastructure/entry-points/alpha/mq-listener')
 include ':mongo-views-repository'
 project(':mongo-views-repository').projectDir = file('./infrastructure/driven-adapters/mongo-views-repository')
 include ':async-view-bus'
 project(':async-view-bus').projectDir = file('./infrastructure/driven-adapters/async-view-bus')
 include ':reactive-web-beta'
-project(':reactive-web-beta').projectDir = file('./infrastructure/entry-points/reactive-web-beta')
+project(':reactive-web-beta').projectDir = file('./infrastructure/entry-points/beta/reactive-web-beta')
 include ':beta-mq-listener'
-project(':beta-mq-listener').projectDir = file('./infrastructure/entry-points/beta-mq-listener')
+project(':beta-mq-listener').projectDir = file('./infrastructure/entry-points/beta/beta-mq-listener')
+include ':socket-responder'
+project(':socket-responder').projectDir = file('./infrastructure/entry-points/gama/socket-responder')
+include ':gama-mq-listener'
+project(':gama-mq-listener').projectDir = file('./infrastructure/entry-points/gama/gama-mq-listener')

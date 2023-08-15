@@ -20,6 +20,9 @@ spring:
     password: "guest"
     virtual-host: "/"
     port: 5672
+  rsocket:
+    server:
+      port: 7000
 management:
   endpoints:
     web:

@@ -7,15 +7,17 @@ import larry.ramirez.serializer.JSONMapperImpl;
 import larry.ramirez.usecase.beta.updateview.UpdateViewUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
 
+@Component
 @AllArgsConstructor
 public class RabbitMQMessageListener {
 
     private final UpdateViewUseCase useCase;
     private final JSONMapper eventSerializer;
-    public static final String GENERAL_QUEUE = "sca.events.general.queue";
+    public static final String GENERAL_QUEUE = "sca.events.queue";
     private final Logger logger = Logger.getLogger("BETAMessageListener");
     private final JSONMapper mapper = new JSONMapperImpl();
 

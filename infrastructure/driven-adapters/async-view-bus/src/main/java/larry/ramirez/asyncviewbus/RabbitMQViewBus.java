@@ -5,12 +5,14 @@ import larry.ramirez.usecase.generic.gateways.ViewBus;
 import larry.ramirez.usecase.generic.gateways.model.CommentViewModel;
 import larry.ramirez.usecase.generic.gateways.model.PostViewModel;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RabbitMQViewBus implements ViewBus {
 
     public static final String EXCHANGE = "SCA_PostsAndComments_exchange";
-    public static final String POST_ROUTING_KEY = "sca.events.routing.key.postcreated";
-    public static final String COMMENT_ROUTING_KEY = "sca.events.routing.key.commentadded";
+    public static final String POST_ROUTING_KEY = "sca.events.post.created.routing.key";
+    public static final String COMMENT_ROUTING_KEY = "sca.events.comment.added.routing.key";
     private final RabbitTemplate template;
     private final JSONMapper eventSerializer;
 
