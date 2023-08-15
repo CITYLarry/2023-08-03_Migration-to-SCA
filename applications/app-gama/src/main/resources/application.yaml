@@ -18,4 +18,4 @@ spring:
     virtual-host: "/"
     port: 5672
 cors:
-  allowed-origins: "http://localhost:4200,http://localhost:8080"
+  allowed-origins: "*"

@@ -9,6 +9,23 @@ services:
       - mongodb
     networks:
       - mynetwork
+  beta:
+    image: beta:latest
+    ports:
+      - '8081:8081'
+    depends_on:
+      - rabbitmq
+      - mongodb
+    networks:
+      - mynetwork
+  gama:
+    image: gama:latest
+    ports:
+      - '8082:8082'
+    depends_on:
+      - rabbitmq
+    networks:
+      - mynetwork
   rabbitmq:
     image: rabbitmq:3-management
     ports:
